@@ -1,19 +1,18 @@
 from django.urls import path,include
 from rest_framework import routers
 from drf_spectacular.views import SpectacularAPIView,SpectacularRedocView,SpectacularSwaggerView
-# from .views import
+from .views import TodoItemViewSet
 
 
 
 
 router = routers.SimpleRouter()
-# router.register(r'users', UserViewSet)
-
+router.register(r'todoitems', TodoItemViewSet)
 
 
 urlpatterns = [
     # path('auth/', include('auth_app.urls')),
-    # path('',include(router.urls)),
+    path('',include(router.urls)),
 
     # Swagger
     path('schema/', SpectacularAPIView.as_view(), name='schema'),
