@@ -7,11 +7,11 @@ from .views import TodoItemViewSet
 
 
 router = routers.SimpleRouter()
-router.register(r'todoitems', TodoItemViewSet)
+router.register(r'todoitems', TodoItemViewSet,basename='todoitems')
 
 
 urlpatterns = [
-    # path('auth/', include('auth_app.urls')),
+    path('auth/', include('auth_app.urls')),
     path('',include(router.urls)),
 
     # Swagger
